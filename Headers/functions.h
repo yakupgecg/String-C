@@ -5,7 +5,7 @@
 #include <string.h>
 #include <stdlib.h>
 
-// Defines functions for handling cstr_t
+// Declares functions for handling cstr_t
 
 cstr_t *init_cstr();
 unsigned int cstr_length(cstr_t *);
