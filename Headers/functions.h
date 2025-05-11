@@ -5,10 +5,10 @@
 #include <string.h>
 #include <stdlib.h>
 
-// Declares functions for handling cstr_t
+// Declares functions for handling ctr_t
 
-cstr_t *init_cstr();
-void free_cstr(cstr_t *);
-unsigned int length_cstr(cstr_t *);
-cstr_t *convert_cstr(char *);
-char *convert_nstr(cstr_t *);
+ctr_t *init_ctr();
+void free_ctr(ctr_t *);
+unsigned int length_ctr(ctr_t *);
+ctr_t *convert_to_ctr(char *);
+char *convert_to_string(ctr_t *);

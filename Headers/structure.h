@@ -5,4 +5,4 @@
 typedef struct string {
     char c;
     struct string *n;
-} cstr_t;
+} ctr_t;

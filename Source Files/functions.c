@@ -3,26 +3,26 @@
 #include <string.h>
 #include <stdlib.h>
 
-cstr_t *init_cstr() {
-    cstr_t *newcstr = malloc(sizeof(cstr_t));
-    if (newcstr == NULL) return NULL;
-    newcstr->c = '\0';
-    newcstr->n = NULL;
-    return newcstr;
+ctr_t *init_ctr() {
+    ctr_t *newstr = malloc(sizeof(ctr_t));
+    if (newstr == NULL) return NULL;
+    newstr->c = '\0';
+    newstr->n = NULL;
+    return newstr;
 }
 
-void free_cstr(cstr_t *cstr) {
-    cstr_t *current = cstr;
+void free_ctr(ctr_t *ctr) {
+    ctr_t *current = ctr;
     while (current != NULL) {
-        cstr_t *temp = current;
+        ctr_t *temp = current;
         current = current->n;
         free(temp);
     }
 }
 
-unsigned int length_cstr(cstr_t *cstr) {
+unsigned int length_ctr(ctr_t *ctr) {
     unsigned int len = 0;
-    cstr_t *current = cstr;
+    ctr_t *current = ctr;
     while (current != NULL) {
         len++;
         current = current->n;
@@ -30,22 +30,22 @@ unsigned int length_cstr(cstr_t *cstr) {
     return len;
 }
 
-cstr_t *convert_cstr(char *str) {
-    cstr_t *newcstr = init_cstr();
-    cstr_t *current = newcstr;
+ctr_t *to_ctr(char *str) {
+    ctr_t *newstr = init_ctr();
+    ctr_t *current = newstr;
     unsigned int i = 0;
     while (str[i] != '\0') {
         current->c = str[i];
-        current->n = init_cstr();
+        current->n = init_ctr();
         current = current->n;
     }
     current->n = NULL;
-    return newcstr;
+    return newstr;
 }
 
-char *convert_nstr(cstr_t *cstr) {
-    cstr_t *current = cstr;
-    unsigned int length = cstr_length(cstr);
+char *ctr_to_string(ctr_t *ctr) {
+    ctr_t *current = ctr;
+    unsigned int length = ctr_length(ctr);
     char newstr[length+1];
     unsigned int i = 0;
     while (current != NULL) {
