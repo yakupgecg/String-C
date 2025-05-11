@@ -46,10 +46,11 @@ ctr_t *to_ctr(char *str) {
 char *ctr_to_string(ctr_t *ctr) {
     ctr_t *current = ctr;
     unsigned int length = ctr_length(ctr);
-    char newstr[length+1];
+    char *newstr = malloc(length+1);
     unsigned int i = 0;
     while (current != NULL) {
         newstr[i] = current->c;
+        current = current->n;
         i++;
     }
     newstr[i] = '\0';
