@@ -24,7 +24,8 @@ unsigned int cstr_length(cstr_t *cstr) {
     unsigned int len = 0;
     cstr_t *current = cstr;
     while (current != NULL) {
-        len += 1;
+        len++;
+        current = current->n;
     }
     return len;
 }
