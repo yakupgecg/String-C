@@ -20,7 +20,7 @@ void free_cstr(cstr_t *cstr) {
     }
 }
 
-unsigned int cstr_length(cstr_t *cstr) {
+unsigned int length_cstr(cstr_t *cstr) {
     unsigned int len = 0;
     cstr_t *current = cstr;
     while (current != NULL) {
