@@ -49,7 +49,7 @@ ctr_t *to_ctr(char *str) {
 
 char *ctr_to_string(ctr_t *ctr) {
     ctr_t *current = ctr;
-    unsigned int length = ctr_length(ctr);
+    unsigned int length = length_ctr(ctr);
     char *newstr = malloc(length+1);
     unsigned int i = 0;
     while (current != NULL) {
