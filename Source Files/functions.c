@@ -38,6 +38,7 @@ ctr_t *to_ctr(char *str) {
         current->c = str[i];
         current->n = init_ctr();
         current = current->n;
+        i++;
     }
     current->n = NULL;
     return newstr;
