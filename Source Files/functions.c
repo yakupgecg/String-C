@@ -36,11 +36,14 @@ ctr_t *to_ctr(char *str) {
     unsigned int i = 0;
     while (str[i] != '\0') {
         current->c = str[i];
-        current->n = init_ctr();
-        current = current->n;
+        if (str[i + 1] != '\0') {
+            current->n = init_ctr();
+            current = current->n;
+        } else {
+            current->n = NULL;
+        }
         i++;
     }
-    current->n = NULL;
     return newstr;
 }
 
