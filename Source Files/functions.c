@@ -3,6 +3,10 @@
 #include <string.h>
 #include <stdlib.h>
 
+// Defines functions given by the header file functions.h
+
+
+// Initializes a ctr_t
 ctr_t *init_ctr() {
     ctr_t *newstr = malloc(sizeof(ctr_t));
     if (newstr == NULL) return NULL;
@@ -11,6 +15,7 @@ ctr_t *init_ctr() {
     return newstr;
 }
 
+// Initializes a ctrm_t
 ctrm_t *init_ctrm(ctr_t *head, ctr_t *tail) {
     if (head == NULL) return NULL;
     ctrm_t *newm = malloc(sizeof(ctrm_t));
@@ -24,6 +29,7 @@ ctrm_t *init_ctrm(ctr_t *head, ctr_t *tail) {
     return newm;
 }
 
+// Frees the given ctr_t and all the ctr_t after the given ctr_t (update coming soon...)
 void free_ctr(ctr_t *ctr) {
     ctr_t *current = ctr;
     while (current != NULL) {
@@ -33,6 +39,7 @@ void free_ctr(ctr_t *ctr) {
     }
 }
 
+// Counts every ctr_t after the given ctr_t, plus the given ctr_t of course (update coming soon...)
 unsigned int length_ctr(ctr_t *ctr) {
     unsigned int len = 0;
     ctr_t *current = ctr;
@@ -43,6 +50,7 @@ unsigned int length_ctr(ctr_t *ctr) {
     return len;
 }
 
+// Converts a normal string to a ctr_t type string
 ctr_t *to_ctr(char *str, ctrm_t *ctrm) {
     ctr_t *newstr = init_ctr();
     ctr_t *current = newstr;
@@ -62,6 +70,7 @@ ctr_t *to_ctr(char *str, ctrm_t *ctrm) {
     return newstr;
 }
 
+// Converts a ctr_t type string to a normal string
 char *ctr_to_string(ctr_t *ctr) {
     ctr_t *current = ctr;
     unsigned int length = length_ctr(ctr);

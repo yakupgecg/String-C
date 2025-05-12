@@ -7,6 +7,8 @@ typedef struct string {
     struct string *n;
 } ctr_t;
 
+// Defines ctr_t manager
+
 typedef struct cmgr {
     ctr_t *head;
     ctr_t *tail;
