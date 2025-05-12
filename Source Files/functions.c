@@ -11,6 +11,19 @@ ctr_t *init_ctr() {
     return newstr;
 }
 
+ctrm_t *init_ctrm(ctr_t *head, ctr_t *tail) {
+    if (head == NULL) return NULL;
+    ctrm_t *newm = malloc(sizeof(ctrm_t));
+    if (newm == NULL) return NULL;
+    newm->head = head;
+    if (tail != NULL) {
+        newm->tail = tail;
+    } else {
+        newm->tail = NULL;
+    }
+    return newm;
+}
+
 void free_ctr(ctr_t *ctr) {
     ctr_t *current = ctr;
     while (current != NULL) {
@@ -30,9 +43,10 @@ unsigned int length_ctr(ctr_t *ctr) {
     return len;
 }
 
-ctr_t *to_ctr(char *str) {
+ctr_t *to_ctr(char *str, ctrm_t *ctrm) {
     ctr_t *newstr = init_ctr();
     ctr_t *current = newstr;
+    ctrm_t *unmd1 = init_ctrm(current, NULL);
     unsigned int i = 0;
     while (str[i] != '\0') {
         current->c = str[i];
@@ -41,6 +55,7 @@ ctr_t *to_ctr(char *str) {
             current = current->n;
         } else {
             current->n = NULL;
+            unmd1->tail = current;
         }
         i++;
     }
