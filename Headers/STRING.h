@@ -1,3 +1,4 @@
+#pragma once
 /*
 
 This is for including all the header files, that you don't need to type
