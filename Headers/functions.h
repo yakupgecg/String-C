@@ -14,3 +14,4 @@ unsigned int length_ctr(ctrm_t *);
 ctr_t *convert_to_ctr(char *);
 char *convert_to_string(ctr_t *);
 ctr_t *get_ctr_byindex(ctrm_t *, unsigned int);
+ctr_t *add_ctr_e(ctrm_t *, char);

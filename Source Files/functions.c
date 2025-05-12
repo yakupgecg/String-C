@@ -95,3 +95,14 @@ ctr_t *get_ctr_byindex(ctrm_t *ctrm, unsigned int index) {
     }
     return current;
 }
+
+// Adds a ctr_t after the given ctrm's tail ctr_t
+ctr_t *add_ctr_e(ctrm_t *ctrm, char c) {
+    if (ctrm->tail == NULL) return NULL;
+    ctr_t *newctr = init_ctr();
+    if (newctr == NULL) return NULL;
+    newctr->c = c;
+    newctr->n = NULL;
+    ctrm->tail->n = newctr;
+    return newctr;
+}
