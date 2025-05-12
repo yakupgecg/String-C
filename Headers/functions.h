@@ -13,3 +13,4 @@ void free_ctr(ctr_t *);
 unsigned int length_ctr(ctr_t *);
 ctr_t *convert_to_ctr(char *);
 char *convert_to_string(ctr_t *);
+ctr_t *get_ctr_byindex(ctrm_t *, unsigned int);

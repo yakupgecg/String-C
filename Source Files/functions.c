@@ -84,3 +84,14 @@ char *ctr_to_string(ctr_t *ctr) {
     newstr[i] = '\0';
     return newstr;
 }
+
+// Counts up to a specific ctr_t by the given index and returns it
+ctr_t *get_ctr_byindex(ctrm_t *ctrm, unsigned int index) {
+    ctr_t *current = ctrm->head;
+    if (index > length_ctr(current)) return NULL;
+    unsigned int i;
+    for (i = 0; i < index; i++) {
+        current = current->n;
+    }
+    return current;
+}
