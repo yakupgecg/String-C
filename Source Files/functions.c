@@ -107,6 +107,25 @@ ctr_t *add_ctr_e(ctrm_t *ctrm, char c) {
     return newctr;
 }
 
+// Adds a ctr_t after the given ctr_t and returns it
+ctr_t *add_ctr_a(ctr_t *ctr, char c, ctrm_t *ctrm) {
+    if (ctr == NULL) return NULL;
+    ctr_t *newctr = init_ctr();
+    if (newctr == NULL) return NULL;
+    if (ctr->n == NULL) {
+        newctr->n = NULL;
+        ctr->n = newctr;
+        if (ctrm != NULL) {
+            ctrm->tail = newctr;
+        }
+    } else {
+        newctr->n = ctr->n;
+        ctr->n = newctr;
+    }
+    newctr->c = c;
+    return newctr;
+}
+
 // Removes the last ctr_t and returns it
 ctr_t *pop_ctr_e(ctrm_t *ctrm) {
     ctr_t *temp = ctrm->tail;
