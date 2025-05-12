@@ -29,9 +29,9 @@ ctrm_t *init_ctrm(ctr_t *head, ctr_t *tail) {
     return newm;
 }
 
-// Frees the given ctr_t and all the ctr_t after the given ctr_t (update coming soon...)
-void free_ctr(ctr_t *ctr) {
-    ctr_t *current = ctr;
+// Frees the given ctr_t and all the ctr_t after the given ctrm's head ctr_t
+void free_ctr(ctrm_t *ctrm) {
+    ctr_t *current = ctrm->head;
     while (current != NULL) {
         ctr_t *temp = current;
         current = current->n;
@@ -39,10 +39,10 @@ void free_ctr(ctr_t *ctr) {
     }
 }
 
-// Counts every ctr_t after the given ctr_t, plus the given ctr_t of course (update coming soon...)
-unsigned int length_ctr(ctr_t *ctr) {
+// Counts every ctr_t after the given ctrm's head ctr_t, and itself of course
+unsigned int length_ctr(ctrm_t *ctrm) {
     unsigned int len = 0;
-    ctr_t *current = ctr;
+    ctr_t *current = ctrm->head;
     while (current != NULL) {
         len++;
         current = current->n;
