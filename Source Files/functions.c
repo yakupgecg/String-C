@@ -106,3 +106,11 @@ ctr_t *add_ctr_e(ctrm_t *ctrm, char c) {
     ctrm->tail->n = newctr;
     return newctr;
 }
+
+// Removes the last ctr_t and returns it
+ctr_t *pop_ctr_e(ctrm_t *ctrm) {
+    ctr_t *temp = ctrm->tail;
+    free(ctrm->tail);
+    ctrm->tail = NULL;
+    return temp;
+}
