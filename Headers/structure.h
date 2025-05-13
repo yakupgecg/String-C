@@ -9,7 +9,7 @@ typedef struct string {
 
 // Defines ctr_t manager
 
-typedef struct cmgr {
+typedef struct {
     ctr_t *head;
     ctr_t *tail;
 } ctrm_t;
