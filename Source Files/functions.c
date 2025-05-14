@@ -71,12 +71,12 @@ ctr_t *to_ctr(char *str, ctrm_t *ctrm) {
 }
 
 // Converts a ctr_t type string to a normal string
-char *ctr_to_string(ctr_t *ctr) {
-    ctr_t *current = ctr;
-    unsigned int length = length_ctr(ctr);
+char *ctr_to_string(ctrm_t *ctrm) {
+    ctr_t *current = ctrm->head;
+    unsigned int length = length_ctr(ctrm->head);
     char *newstr = malloc(length+1);
     unsigned int i = 0;
-    while (current != NULL) {
+    while (current != ctrm->tail) {
         newstr[i] = current->c;
         current = current->n;
         i++;

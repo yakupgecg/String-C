@@ -12,7 +12,7 @@ ctrm_t *init_ctrm(ctr_t *, ctr_t *);
 void free_ctr(ctr_t *);
 unsigned int length_ctr(ctrm_t *);
 ctr_t *to_ctr(char *);
-char *ctr_to_string(ctr_t *);
+char *ctr_to_string(ctrm_t *);
 ctr_t *get_ctr_byindex(ctrm_t *, unsigned int);
 ctr_t *add_ctr_e(ctrm_t *, char);
 ctr_t *add_ctr_a(ctr_t *, char);
