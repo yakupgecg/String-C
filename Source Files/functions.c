@@ -81,6 +81,9 @@ char *ctr_to_string(ctrm_t *ctrm) {
         current = current->n;
         i++;
     }
+    newstr[i] = current->c;
+    current = current->n;
+    i++;
     newstr[i] = '\0';
     return newstr;
 }
