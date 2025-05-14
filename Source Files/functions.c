@@ -104,6 +104,7 @@ ctr_t *add_ctr_e(ctrm_t *ctrm, char c) {
     newctr->c = c;
     newctr->n = NULL;
     ctrm->tail->n = newctr;
+    ctrm->tail = newctr;
     return newctr;
 }
 
