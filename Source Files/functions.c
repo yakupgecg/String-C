@@ -31,6 +31,7 @@ ctrm_t *init_ctrm(ctr_t *head, ctr_t *tail) {
 
 // Frees the given ctr_t and all the ctr_t after the given ctrm's head ctr_t
 void free_ctr(ctrm_t *ctrm) {
+    if (ctrm == NULL) return;
     ctr_t *current = ctrm->head;
     while (current != NULL) {
         ctr_t *temp = current;
@@ -41,6 +42,7 @@ void free_ctr(ctrm_t *ctrm) {
 
 // Counts every ctr_t after the given ctrm's head ctr_t, and itself of course
 unsigned int length_ctr(ctrm_t *ctrm) {
+    if (ctrm == NULL) return 0;
     unsigned int len = 0;
     ctr_t *current = ctrm->head;
     while (current != NULL) {
@@ -52,8 +54,11 @@ unsigned int length_ctr(ctrm_t *ctrm) {
 
 // Converts a normal string to a ctr_t type string
 ctrm_t *to_ctr(char *str) {
+    if (str == NULL) return NULL;
     ctr_t *current = init_ctr();
+    if (current == NULL) return NULL;
     ctrm_t *unmd1 = init_ctrm(current, NULL);
+    if (unmd1 == NULL) return NULL;
     unsigned int i = 0;
     while (str[i] != '\0') {
         current->c = str[i];
@@ -73,6 +78,7 @@ ctrm_t *to_ctr(char *str) {
 
 // Converts a ctr_t type string to a normal string
 char *ctr_to_string(ctrm_t *ctrm) {
+    if (ctrm == NULL) return NULL;
     ctr_t *current = ctrm->head;
     unsigned int length = length_ctr(ctrm->head);
     char *newstr = malloc(length+1);
@@ -91,6 +97,7 @@ char *ctr_to_string(ctrm_t *ctrm) {
 
 // Counts up to a specific ctr_t by the given index and returns it
 ctr_t *get_ctr_byindex(ctrm_t *ctrm, unsigned int index) {
+    if (ctrm == NULL) return NULL;
     ctr_t *current = ctrm->head;
     if (index > length_ctr(ctrm)) return NULL;
     unsigned int i;
