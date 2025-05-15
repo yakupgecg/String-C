@@ -131,12 +131,15 @@ ctr_t *add_ctr_a(ctr_t *ctr, char c, ctrm_t *ctrm) {
     return newctr;
 }
 
-// Removes the last ctr_t and returns it
+// Removes the last ctr_t and returns it (Update coming soon...)
 ctr_t *pop_ctr_e(ctrm_t *ctrm) {
-    ctr_t *temp = ctrm->tail;
+	ctr_t *temp = init_ctr();
+	if (temp == NULL) return NULL;
+	temp->c = ctrm->tail->c;
+	temp->n = ctrm->tail->n;
     free(ctrm->tail);
-    ctrm->tail = NULL;
-    return temp;
+	ctrm->tail = get_ctr_byindex(ctrm, length_ctr(ctrm) - 1);
+	return temp;
 }
 
 // Removes the ctr_t after the given ctr_t

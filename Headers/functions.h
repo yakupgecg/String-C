@@ -18,3 +18,13 @@ ctr_t *add_ctr_e(ctrm_t *, char);
 ctr_t *add_ctr_a(ctr_t *, char);
 ctr_t *pop_ctr_e(ctrm_t *);
 ctr_t *pop_ctr_a(ctr_t *);
+
+/*
+TODO:
+- Make ctrm_t the return value for most functions
+
+- Make a function that takes an ctr_t (or ctrm_t)
+and creates a new ctr_t. Then it copies the taken ctr_t
+to the new ctr_t by looping through the taken ctr_t
+and copying the characters to the new ctr_t
+*/
