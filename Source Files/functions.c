@@ -141,7 +141,6 @@ ctr_t *pop_ctr_e(ctrm_t *ctrm) {
 // Removes the ctr_t after the given ctr_t
 ctr_t *pop_ctr_a(ctr_t *ctr) {
     ctr_t *temp = ctr->n;
-    free(ctr->n);
     ctr->n = ctr->n->n;
     return temp;
 }
