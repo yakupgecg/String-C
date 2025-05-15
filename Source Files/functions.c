@@ -51,9 +51,8 @@ unsigned int length_ctr(ctrm_t *ctrm) {
 }
 
 // Converts a normal string to a ctr_t type string
-ctr_t *to_ctr(char *str, ctrm_t *ctrm) {
-    ctr_t *newstr = init_ctr();
-    ctr_t *current = newstr;
+ctrm_t *to_ctr(char *str) {
+    ctr_t *current = init_ctr();
     ctrm_t *unmd1 = init_ctrm(current, NULL);
     unsigned int i = 0;
     while (str[i] != '\0') {
@@ -62,12 +61,14 @@ ctr_t *to_ctr(char *str, ctrm_t *ctrm) {
             current->n = init_ctr();
             current = current->n;
         } else {
-            current->n = NULL;
+            current->n = init_ctr();
+			current->n->c = '\0';
+			current->n->n = NULL;
             unmd1->tail = current;
         }
         i++;
     }
-    return newstr;
+    return unmd1;
 }
 
 // Converts a ctr_t type string to a normal string
