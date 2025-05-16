@@ -155,3 +155,24 @@ ctr_t *pop_ctr_a(ctr_t *ctr) {
     ctr->n = ctr->n->n;
     return temp;
 }
+
+// Returns a copy of the given ctr_t
+ctr_t *copy_ctr(ctr_t *ctr) {
+	ctr_t *newctr = init_ctr();
+	newctr->c = ctr->c;
+	return newctr;
+}
+
+// Returns a copy of the given ctrm_t
+ctrm_t *copy_ctrm(ctrm_t *ctrm) {
+	ctr_t *current = ctrm->head;
+	ctr_t *current2 = copy_ctr(ctrm->head);
+	ctrm_t *newctrm = init_ctrm(current2, NULL);
+	while (current != NULL) {
+		current2->n = copy_ctr(current->n);
+		current2 = current2->n;
+		current = current->n;
+	}
+	current2->n = NULL;
+	return newctrm;
+}
