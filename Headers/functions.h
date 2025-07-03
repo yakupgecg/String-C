@@ -7,7 +7,7 @@
 
 // Declares functions for handling ctr_t
 
-ctr_t *init_ctr();
+ctr_t *init_ctr(char);
 ctrm_t *init_ctrm(ctr_t *, ctr_t *);
 void free_ctr(ctrm_t *);
 unsigned int length_ctr(ctrm_t *);

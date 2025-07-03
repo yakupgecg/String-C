@@ -7,10 +7,10 @@
 
 
 // Initializes a ctr_t
-ctr_t *init_ctr() {
+ctr_t *init_ctr(char c) {
     ctr_t *newstr = malloc(sizeof(ctr_t));
     if (newstr == NULL) return NULL;
-    newstr->c = '\0';
+    newstr->c = c;
     newstr->n = NULL;
     return newstr;
 }
@@ -55,7 +55,7 @@ unsigned int length_ctr(ctrm_t *ctrm) {
 // Converts a normal string to a ctr_t type string
 ctrm_t *to_ctr(char *str) {
     if (str == NULL) return NULL;
-    ctr_t *current = init_ctr();
+    ctr_t *current = init_ctr('\0');
     if (current == NULL) return NULL;
     ctrm_t *unmd1 = init_ctrm(current, NULL);
     if (unmd1 == NULL) return NULL;
@@ -63,10 +63,10 @@ ctrm_t *to_ctr(char *str) {
     while (str[i] != '\0') {
         current->c = str[i];
         if (str[i + 1] != '\0') {
-            current->n = init_ctr();
+            current->n = init_ctr('\0');
             current = current->n;
         } else {
-            current->n = init_ctr();
+            current->n = init_ctr('\0');
 			current->n->c = '\0';
 			current->n->n = NULL;
             unmd1->tail = current;
@@ -110,9 +110,8 @@ ctr_t *get_ctr_byindex(ctrm_t *ctrm, unsigned int index) {
 // Adds a ctr_t after the given ctrm's tail ctr_t
 ctr_t *add_ctr_e(ctrm_t *ctrm, char c) {
     if (ctrm->tail == NULL) return NULL;
-    ctr_t *newctr = init_ctr();
+    ctr_t *newctr = init_ctr(c);
     if (newctr == NULL) return NULL;
-    newctr->c = c;
     newctr->n = NULL;
     ctrm->tail->n = newctr;
     ctrm->tail = newctr;
@@ -122,7 +121,7 @@ ctr_t *add_ctr_e(ctrm_t *ctrm, char c) {
 // Adds a ctr_t after the given ctr_t and returns it
 ctr_t *add_ctr_a(ctr_t *ctr, char c, ctrm_t *ctrm) {
     if (ctr == NULL) return NULL;
-    ctr_t *newctr = init_ctr();
+    ctr_t *newctr = init_ctr('\0');
     if (newctr == NULL) return NULL;
     if (ctr->n == NULL) {
         newctr->n = NULL;
@@ -140,7 +139,7 @@ ctr_t *add_ctr_a(ctr_t *ctr, char c, ctrm_t *ctrm) {
 
 // Removes the last ctr_t and returns it (Update coming soon...)
 ctr_t *pop_ctr_e(ctrm_t *ctrm) {
-	ctr_t *temp = init_ctr();
+	ctr_t *temp = init_ctr('\0');
 	if (temp == NULL) return NULL;
 	temp->c = ctrm->tail->c;
 	temp->n = ctrm->tail->n;
@@ -158,7 +157,7 @@ ctr_t *pop_ctr_a(ctr_t *ctr) {
 
 // Returns a copy of the given ctr_t
 ctr_t *copy_ctr(ctr_t *ctr) {
-	ctr_t *newctr = init_ctr();
+	ctr_t *newctr = init_ctr('\0');
 	newctr->c = ctr->c;
 	return newctr;
 }
