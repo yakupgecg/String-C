@@ -15,7 +15,7 @@ ctrm_t *to_ctr(char *);
 char *ctr_to_string(ctrm_t *);
 ctr_t *get_ctr_byindex(ctrm_t *, unsigned int);
 ctr_t *add_ctr_e(ctrm_t *, char);
-ctr_t *add_ctr_a(ctr_t *, char);
+ctr_t *add_ctr_a(ctr_t *, char, ctrm_t*);
 ctr_t *pop_ctr_e(ctrm_t *);
 ctr_t *pop_ctr_a(ctr_t *);
 ctr_t *copy_ctr(ctr_t *);
