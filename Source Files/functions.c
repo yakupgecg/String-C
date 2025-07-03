@@ -113,8 +113,8 @@ ctr_t *add_ctr_e(ctrm_t *ctrm, char c) {
     ctr_t *newctr = init_ctr(c);
     if (newctr == NULL) return NULL;
     newctr->n = NULL;
-    ctrm->tail->n = newctr;
     ctrm->tail = newctr;
+    get_ctr_byindex(ctrm, length_ctr(ctrm)-1)->n = newctr;
     return newctr;
 }
 
