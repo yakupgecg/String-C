@@ -80,7 +80,7 @@ ctrm_t *to_ctr(char *str) {
 char *ctr_to_string(ctrm_t *ctrm) {
     if (ctrm == NULL) return NULL;
     ctr_t *current = ctrm->head;
-    unsigned int length = length_ctr(ctrm->head);
+    unsigned int length = length_ctr(ctrm);
     char *newstr = malloc(length+1);
     unsigned int i = 0;
     while (current != ctrm->tail) {
