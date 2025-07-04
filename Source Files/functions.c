@@ -157,8 +157,7 @@ ctr_t *pop_ctr_a(ctr_t *ctr) {
 
 // Returns a copy of the given ctr_t
 ctr_t *copy_ctr(ctr_t *ctr) {
-	ctr_t *newctr = init_ctr('\0');
-	newctr->c = ctr->c;
+	ctr_t *newctr = init_ctr(ctr->c);
 	return newctr;
 }
 
