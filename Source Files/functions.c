@@ -84,10 +84,18 @@ char *ctr_to_string(ctrm_t *ctrm) {
     unsigned int length = length_ctr(ctrm);
     char *newstr = malloc(length+1);
     unsigned int i = 0;
-    while (current != ctrm->tail) {
-        newstr[i] = current->c;
-        current = current->n;
-        i++;
+    if (ctrm->tail != NULL) {
+        while (current != ctrm->tail) {
+            newstr[i] = current->c;
+            current = current->n;
+            i++;
+        }
+    } else {
+        while (current != NULL) {
+            newstr[i] = current->c;
+            current = current->n;
+            i++;
+        }
     }
     newstr[i] = current->c;
     current = current->n;
