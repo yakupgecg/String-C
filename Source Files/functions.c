@@ -58,8 +58,8 @@ ctrm_t *to_ctr(char *str) {
     if (str == NULL) return NULL;
     ctr_t *current = init_ctr('\0');
     if (current == NULL) return NULL;
-    ctrm_t *unmd1 = init_ctrm(current, NULL);
-    if (unmd1 == NULL) return NULL;
+    ctrm_t *newctrm = init_ctrm(current, NULL);
+    if (newctrm == NULL) return NULL;
     unsigned int i = 0;
     while (str[i] != '\0') {
         current->c = str[i];
@@ -70,11 +70,11 @@ ctrm_t *to_ctr(char *str) {
             current->n = init_ctr('\0');
 			current->n->c = '\0';
 			current->n->n = NULL;
-            unmd1->tail = current;
+            newctrm->tail = current;
         }
         i++;
     }
-    return unmd1;
+    return newctrm;
 }
 
 // Converts a ctr_t type string to a normal string
