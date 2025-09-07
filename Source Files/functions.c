@@ -56,22 +56,13 @@ unsigned int length_ctr(ctrm_t *ctrm) {
 // Converts a normal string to a ctr_t type string
 ctrm_t *to_ctr(char *str) {
     if (str == NULL) return NULL;
-    ctr_t *current = init_ctr('\0');
+    ctr_t *current = init_ctr(str[0]);
     if (current == NULL) return NULL;
-    ctrm_t *newctrm = init_ctrm(current, NULL);
+    ctrm_t *newctrm = init_ctrm(current, current);
     if (newctrm == NULL) return NULL;
-    unsigned int i = 0;
+    unsigned int i = 1;
     while (str[i] != '\0') {
-        current->c = str[i];
-        if (str[i + 1] != '\0') {
-            current->n = init_ctr('\0');
-            current = current->n;
-        } else {
-            current->n = init_ctr('\0');
-			current->n->c = '\0';
-			current->n->n = NULL;
-            newctrm->tail = current;
-        }
+        add_ctr_e(newctrm, str[i]);
         i++;
     }
     return newctrm;
